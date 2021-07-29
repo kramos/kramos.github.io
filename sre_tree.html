@@ -1,0 +1,318 @@
+<!DOCTYPE html[]>
+<tml lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1" />
+<style>
+ul,
+#myUL {
+list-style-type: none;
+}
+
+
+.bullets {
+list-style-type: circle;
+}
+
+
+body {
+margin: 10px;
+padding: 10px;
+}
+
+#myUL {
+margin: 10px;
+padding: 10px;
+}
+
+.caret {
+cursor: pointer;
+-webkit-user-select: none; /* Safari 3.1+ */
+-moz-user-select: none; /* Firefox 2+ */
+-ms-user-select: none; /* IE 10+ */
+user-select: none;
+}
+
+.caret::before {
+content: "\25B6";
+color: black;
+display: inline-block;
+margin-right: 6px;
+}
+
+.caret-down::before {
+-ms-transform: rotate(90deg); /* IE 9 */
+-webkit-transform: rotate(90deg); /* Safari */
+transform: rotate(90deg);
+}
+
+.nested {
+display: none;
+}
+
+.active {
+display: block;
+}
+</style>
+      
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      
+    <title>SRE Guidance Tree</title>
+</head>
+<body>
+  <h2>SRE Guidance Tree</h2>
+  <p>The idea of this tree is to help you get started with key parts of SRE.  Simply answer questions and expand the tree to take your own path!</p>
+  <ul id="myUL">
+    <li>
+      <span class="caret">Do you want to start implementing some ideas from SRE?</span>
+      <ul class="nested">
+        <li>
+          <span class="caret">No</span>
+          <ul class="nested">
+            <li>Fair enough!  We're done.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="caret">Yes</span>
+          <ul class="nested">
+            <li>Is your highest priority (right now) to improve service quality and resilience, or to reduce manual work required by your services (aka Toil), or to reduce costs?</li>
+            <li>
+              <span class="caret">Improve service quality</span>
+              <ul class="nested">
+                <li>Do you have a definition of what your service is and who experiences first-hand the quality of your service?</li>
+                <li>
+                  <span class="caret">No</span>
+                  <ul class="nested">
+                    <li>Start by writing it down and getting feedback from your team and stakeholders</li>
+                  </ul>
+                </li>
+                <li>
+                  <span class="caret">Yes</span>
+                  <ul class="nested">
+                    <li>Do you have metrics that describe the most important characteristics that impact the perceived quality of your service?</li>
+                    <li>
+                      <span class="caret">No</span>
+                      <ul class="nested">
+                        <li>You need to go back to NFRs, SLAs, specification documents, and then your Product Owner / representatives of the people who first-experiences hand the quality of your service.</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <span class="caret">Yes</span>
+                      <ul class="nested">
+                        <li>Then these metrics will form the basis of your Service Level Indicators (SLIs).</li>
+                        <li>Do you have your SLIs documented including how to calculate them as percentages (where 100% means everything was good enough)?</li>
+                        <li>
+                          <span class="caret">No</span>
+                          <ul class="nested">
+                            <li>Then you need to refine and document your SLI definitions.</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <span class="caret">Yes</span>
+                          <ul class="nested">
+                            <li>Then you just need to ensure you have enough coverage of these SLIs, i.e. if there are ways that your service quality could become too low without those SLIs noticing, go back and create more SLIs</li>
+                            <li>Do you have target objectives for what values your SLIs should be at over the course of a month (aka do you have Service Level Objectives / SLOs)?</li>
+                            <li>
+                              <span class="caret">No</span>
+                              <ul class="nested">
+                                <li>You need to your Product Owner to set and agree your SLO targets</li>
+                              </ul>
+                            </li>
+                            <li>
+                              <span class="caret">Yes</span>
+                              <ul class="nested">
+                                <li>Do you have an agreed and implemented approach to measuring the SLIs for your service?</li>
+                                <li>
+                                  <span class="caret">No</span>
+                                  <ul class="nested">
+                                    <li>You need to agree how and where to measure these things, get the metrics implemented, and ensure there is a process for generating them.</li>
+                                  </ul>
+                                </li>
+                                <li>
+                                  <span class="caret">Yes</span>
+                                  <ul class="nested">
+                                    <li>Are your SLO scores used as part of your monthly (end of SLO measurement window) service reviews?</li>
+                                    <li>
+                                      <span class="caret">No</span>
+                                      <ul class="nested">
+                                        <li>You need to start making sure these metrics are used as part of how quality of service is recognised and managed</li>
+                                      </ul>
+                                    </li>
+                                    <li>
+                                      <span class="caret">Yes</span>
+                                      <ul class="nested">
+                                        <li>When an SLO is breached does this lead to work that will prevent this happening in future made a top priority?</li>
+                                        <li>
+                                          <span class="caret">No</span>
+                                          <ul class="nested">
+                                            <li>Your SLOs aren't having the impact they should.  You need to get agreement that SLO breaches leads to automatic prioritisation</li>
+                                          </ul>
+                                        </li>
+                                        <li>
+                                          <span class="caret">Yes</span>
+                                          <ul class="nested">
+                                            <li>Are your SLIs measured over shorter windows during the SLO window (perhaps in conjunction with tracking your "Error Budget" spend) to proactively try to hit SLOs?</li>
+                                            <li>
+                                              <span class="caret">No</span>
+                                              <ul class="nested">
+                                                <li>You need to integrate the tracking of SLIs, Error Budget spend, and forecasted SLOs as part of your support work.</li>
+                                              </ul>
+                                            </li>
+                                            <li>
+                                              <span class="caret">Yes</span>
+                                              <ul class="nested">
+                                                <li>
+                                              Looking good!  You have a commonly understood definition of how to evaluate service quality (SLIs), you have service quality targets (SLOs), your SLIs are measured, service quality (i.e. SLO performance) drives your service quality. and SLI performance (possibly Error Budget spend) is measured and used proactively to try to ensure SLOs are hit.  SLIs and SLOs should be creating an effective feedback loop to balance service quality with your other change priorities.
+                                              <p>Do you use SLIs, SLOs and Error Budgeting as part of delivering new features and as part of evaluating resilience?</p>
+                                              </li>
+                                              <li>
+                                                <span class="caret">No</span>
+                                                <ul class="nested">
+                                                  <li>Sounds like it's time to shift left your use of SLIs and SLOs and make them a native part of delivery as opposed to something you retro fit.</li>
+                                                </ul>
+                                              </li>
+                                              <li>
+                                                <span class="caret">Yes</span>
+                                                <ul class="nested">
+                                                  <li>Just wow, please share your experiences with others!  (And maybe think about Toil reduction.)</li>
+                                                </ul>
+                                              </li>
+                                            </ul>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="caret">Reduce Toil</span>
+            <ul class="nested">
+              <li>Do you have a clear intention on how you want to reduce third party spend and/or improve the lives of colleagues?</li>
+              <li>
+                <span class="caret">No</span>
+                <ul class="nested">
+                  <li>Start by determining this as it will inform the extent to which you should be looking to reduce Toil, what type of Toil you want to be eliminating, how you might get Toil reduction priorities (e.g. there may be a commercial aspect to it).</li>
+                </ul>
+              </li>
+              <li>
+                <span class="caret">Yes</span>
+                <ul class="nested">
+                  <li>If colleagues perform Toil work, ensure you have a charter that makes a commitment to them about what percentage of their workload should be made up by Toil (Google aim for 50% but that's just one example).  Make sure it is clear whether this target is currently realistic and make a commitment to when it will be achieved.</li>
+                  <li>Do you have a definition of what work should be classified as Toil?  This doesn't just mean the
+<a href="https://sre.google/sre-book/eliminating-toil/"
+                      class="external-link"
+                      rel="nofollow">Google book definition</a>, it should be specific to your context with examples.
+</li>
+                  <li>
+                    <span class="caret">No</span>
+                    <ul class="nested">
+                      <li>Create a definition, review it with your team, test it against recent work - is it clear what was Toil and what was not?  Capture examples.  Be prepared for this definition to be refined over time.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="caret">Yes</span>
+                    <ul class="nested">
+                      <li>Do you have an approach to quantifying what Toil is currently getting done?</li>
+                      <li>
+                        <span class="caret">No</span>
+                        <ul class="nested">
+                          <li>Create one!  This doesn't have to be incredibly precise and comprehensive, we're looking for an indication of the most prevalent, costly, and risky (often Toil involves risky work like running privileged system commands).</li>
+                        </ul>
+                      </li>
+                      <li>
+                        <span class="caret">Yes</span>
+                        <ul class="nested">
+                          <li>Assuming you are using your approach, and now have some data about what specific Toil tasks seem to be most prevalent, costly, and risky do you have an approach to prioritising which specific Toil to go after reducing?</li>
+                          <li>
+                            <span class="caret">No</span>
+                            <ul class="nested">
+                              <li>Create a prioritisation method.  They key inputs are: cost spent performing one instance of the task, frequency task is needed, any impact to users (for example a Member waits for task to complete), risks for task to complete.  A pseudo scientific model (i.e. similar to a risk prioritisation matrix) should suffice.</li>
+                            </ul>
+                          </li>
+                          <li>
+                            <span class="caret">Yes</span>
+                            <ul class="nested">
+                              <li>Having defined Toil and prioritised some Toil to reduce, do you have the skills, authority (perhaps the Toil is a function of someone else's service) and capacity?</li>
+                              <li>
+                                <span class="caret">No</span>
+                                <ul class="nested">
+                                  <li>Need to work out how to address getting Toil reduction prioritised</li>
+                                </ul>
+                              </li>
+                              <li>
+                                <span class="caret">Yes</span>
+                                <ul class="nested">
+                                  <li>Excellent you have a strategy for reducing Toil, you know how to recognise it, you know how to prioritise reducing it, and you have a means for reducing it.</li>
+                                  <li>If you have made a commitment to colleagues about how much Toil they should have to perform are you delivering on it (or are they doing too much Toil still)?</li>
+                                  <li>
+                                    <span class="caret">No</span>
+                                    <ul class="nested">
+                                      <li>Need to find other ways to prevent colleagues doing the Toil or at least revise the commitment and expectations around Toil.</li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <span class="caret">Yes</span>
+                                    <ul class="nested">
+                                      <li>Just wow, you have a well oiled approach to Toil  Please share your experiences with others!  (And maybe think about service quality improvement.)</li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="caret">Reduce costs</span>
+            <ul class="nested">
+              <li>From a core SRE perspective you have two levers:</li>
+              <ul>
+                <li>1. Refine your measurement of service quality so that:</li>
+                <li>
+                  <ul class="bullets">
+                    <li>You more effectively reduce the cost of poor quality changes making it to production and generating a lot of Toil</li>
+                    <li>You can potentially lower the quality of your service to make it cheaper to run.  For example if you need a page load time to be 2000ms and it currently loads in 10ms, you might be able to reduce the amount of infrastructure you use.</li>
+                  </ul>
+                </li>
+                <li>2. Focus on reducing Toil i.e. the manual work required to support production (for which the cost of that work could avoided).</li>
+              </ul>
+              <li>So go back a step and pick Improve Service Quality or Reduce Toil!</li>
+              <li><br/>NB. there are other cost saving levers that impact the above ideas.  For example you may currently run your service with a low day rate outsourced team.  Your strategy may be to reduce Toil and therefore the number of people required, or instead it might be to reduce Toil to the point that your inhouse Engineers can pick it all up cost effectively.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+toggler[i].addEventListener("click", function () {
+this.parentElement.querySelector(".nested").classList.toggle("active");
+this.classList.toggle("caret-down");
+});
+}
+</script>
+</html>
