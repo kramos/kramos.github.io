@@ -6,19 +6,14 @@
           content="width=device-width, initial-scale=1" />
 <style>
 ul,
+li,
 #myUL {
 list-style-type: none;
 }
 
-
-.bullets {
-list-style-type: circle;
-}
-
-
 body {
-margin: 10px;
-padding: 10px;
+margin: 50px;
+padding: 50px;
 }
 
 #myUL {
@@ -39,6 +34,7 @@ content: "\25B6";
 color: black;
 display: inline-block;
 margin-right: 6px;
+margin-top: 10px;
 }
 
 .caret-down::before {
@@ -56,13 +52,14 @@ display: block;
 }
 </style>
       
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
       
-    <title>SRE Guidance Tree</title>
+    <title>SRE Helper</title>
 </head>
 <body>
-  <h2>SRE Guidance Tree</h2>
-  <p>The idea of this tree is to help you get started with key parts of SRE.  Simply answer questions and expand the tree to take your own path!</p>
+    <h2>SRE Helper</h2><br/>
+    <p>This page exists to help you decide what to do next around adopting ideas from SRE.</p>
+    <p>Simply answer questions and expand the tree to find your own path!</p>
   <ul id="myUL">
     <li>
       <span class="caret">Do you want to start implementing some ideas from SRE?</span>
@@ -70,13 +67,13 @@ display: block;
         <li>
           <span class="caret">No</span>
           <ul class="nested">
-            <li>Fair enough!  We're done.</li>
+              <li>Fair enough, but if you <i>are</i> still on the fence, maybe take a look at the <a href="https://sre.google/books/">free books</a> from Google.  Pop back here when you are ready!</li>
           </ul>
         </li>
         <li>
           <span class="caret">Yes</span>
           <ul class="nested">
-            <li>Is your highest priority (right now) to improve service quality and resilience, or to reduce manual work required by your services (aka Toil), or to reduce costs?</li>
+            <li>Is your highest priority (right now) to improve service quality and resilience, to reduce manual work required by your services (aka Toil), or to reduce costs?</li>
             <li>
               <span class="caret">Improve service quality</span>
               <ul class="nested">
@@ -84,7 +81,7 @@ display: block;
                 <li>
                   <span class="caret">No</span>
                   <ul class="nested">
-                    <li>Start by writing it down and getting feedback from your team and stakeholders</li>
+                    <li>Start by writing it down and getting feedback from your team and stakeholders.</li>
                   </ul>
                 </li>
                 <li>
@@ -111,12 +108,12 @@ display: block;
                         <li>
                           <span class="caret">Yes</span>
                           <ul class="nested">
-                            <li>Then you just need to ensure you have enough coverage of these SLIs, i.e. if there are ways that your service quality could become too low without those SLIs noticing, go back and create more SLIs</li>
+                            <li>Then you just need to ensure you have enough coverage of these SLIs, i.e. if there are ways that your service quality could become too low without those SLIs noticing, go back and create more SLIs.</li>
                             <li>Do you have target objectives for what values your SLIs should be at over the course of a month (aka do you have Service Level Objectives / SLOs)?</li>
                             <li>
                               <span class="caret">No</span>
                               <ul class="nested">
-                                <li>You need to your Product Owner to set and agree your SLO targets</li>
+                                <li>You need to your Product Owner to set and agree your SLO targets.</li>
                               </ul>
                             </li>
                             <li>
@@ -136,7 +133,7 @@ display: block;
                                     <li>
                                       <span class="caret">No</span>
                                       <ul class="nested">
-                                        <li>You need to start making sure these metrics are used as part of how quality of service is recognised and managed</li>
+                                        <li>You need to start making sure these metrics are used as part of how quality of service is recognised and managed.</li>
                                       </ul>
                                     </li>
                                     <li>
@@ -146,7 +143,7 @@ display: block;
                                         <li>
                                           <span class="caret">No</span>
                                           <ul class="nested">
-                                            <li>Your SLOs aren't having the impact they should.  You need to get agreement that SLO breaches leads to automatic prioritisation</li>
+                                            <li>Your SLOs aren't having the impact they should.  You need to get agreement that SLO breaches leads to automatic prioritisation.</li>
                                           </ul>
                                         </li>
                                         <li>
@@ -163,7 +160,7 @@ display: block;
                                               <span class="caret">Yes</span>
                                               <ul class="nested">
                                                 <li>
-                                              Looking good!  You have a commonly understood definition of how to evaluate service quality (SLIs), you have service quality targets (SLOs), your SLIs are measured, service quality (i.e. SLO performance) drives your service quality. and SLI performance (possibly Error Budget spend) is measured and used proactively to try to ensure SLOs are hit.  SLIs and SLOs should be creating an effective feedback loop to balance service quality with your other change priorities.
+                                              <p>Looking good!  You have a commonly understood definition of how to evaluate service quality (SLIs), you have service quality targets (SLOs), your SLIs are measured, service quality (i.e. SLO performance) drives your service quality. and SLI performance (possibly Error Budget spend) is measured and used proactively to try to ensure SLOs are hit.  SLIs and SLOs should be creating an effective feedback loop to balance service quality with your other change priorities.</p>
                                               <p>Do you use SLIs, SLOs and Error Budgeting as part of delivering new features and as part of evaluating resilience?</p>
                                               </li>
                                               <li>
@@ -175,7 +172,7 @@ display: block;
                                               <li>
                                                 <span class="caret">Yes</span>
                                                 <ul class="nested">
-                                                  <li>Just wow, please share your experiences with others!  (And maybe think about Toil reduction.)</li>
+                                                  <li>Just wow, please share your experiences with others!  (And maybe think next about Toil reduction.)</li>
                                                 </ul>
                                               </li>
                                             </ul>
@@ -248,7 +245,7 @@ display: block;
                               <li>
                                 <span class="caret">No</span>
                                 <ul class="nested">
-                                  <li>Need to work out how to address getting Toil reduction prioritised</li>
+                                  <li>You need to work out how to address getting Toil reduction prioritised.</li>
                                 </ul>
                               </li>
                               <li>
@@ -259,13 +256,13 @@ display: block;
                                   <li>
                                     <span class="caret">No</span>
                                     <ul class="nested">
-                                      <li>Need to find other ways to prevent colleagues doing the Toil or at least revise the commitment and expectations around Toil.</li>
+                                      <li>You need to find other ways to prevent colleagues doing the Toil or at least revise the commitment and expectations around Toil.</li>
                                     </ul>
                                   </li>
                                   <li>
                                     <span class="caret">Yes</span>
                                     <ul class="nested">
-                                      <li>Just wow, you have a well oiled approach to Toil  Please share your experiences with others!  (And maybe think about service quality improvement.)</li>
+                                      <li>Just wow, you have a well oiled approach to Toil  Please share your experiences with others!  (And maybe think next about service quality improvement.)</li>
                                     </ul>
                                   </li>
                                 </ul>
