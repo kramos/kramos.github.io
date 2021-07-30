@@ -91,13 +91,13 @@ display: block;
                     <li>
                       <span class="caret">No</span>
                       <ul class="nested">
-                        <li>You need to go back to NFRs, SLAs, specification documents, and then your Product Owner / representatives of the people who first-experiences hand the quality of your service.</li>
+                        <li>You need to go back to NFRs, SLAs, specification documents, and then your Product Owner / a representative of the people who first-hand experience the quality of your service.</li>
                       </ul>
                     </li>
                     <li>
                       <span class="caret">Yes</span>
                       <ul class="nested">
-                        <li>Then these metrics will form the basis of your Service Level Indicators (SLIs).</li>
+                        <li>Then these metrics will form the basis of your Service Level Indicators (<a href="https://sre.google/sre-book/service-level-objectives/#indicators-o8seIAcZ">SLIs</a>).</li>
                         <li>Do you have your SLIs documented including how to calculate them as percentages (where 100% means everything was good enough)?</li>
                         <li>
                           <span class="caret">No</span>
@@ -109,11 +109,11 @@ display: block;
                           <span class="caret">Yes</span>
                           <ul class="nested">
                             <li>Then you just need to ensure you have enough coverage of these SLIs, i.e. if there are ways that your service quality could become too low without those SLIs noticing, go back and create more SLIs.</li>
-                            <li>Do you have target objectives for what values your SLIs should be at over the course of a month (aka do you have Service Level Objectives / SLOs)?</li>
+                            <li>Do you have target objectives for what values your SLIs should be at over the course of a month (aka do you have Service Level Objectives / <a href="https://sre.google/sre-book/service-level-objectives/#objectives-g0s1tdcz">SLOs</a>)?</li>
                             <li>
                               <span class="caret">No</span>
                               <ul class="nested">
-                                <li>You need to your Product Owner to set and agree your SLO targets.</li>
+                                <li>You need to your Product Owner (or Service Owner?) to set and agree your SLO targets.</li>
                               </ul>
                             </li>
                             <li>
@@ -139,7 +139,7 @@ display: block;
                                     <li>
                                       <span class="caret">Yes</span>
                                       <ul class="nested">
-                                        <li>When an SLO is breached does this lead to work that will prevent this happening in future made a top priority?</li>
+                                        <li>When an SLO is breached does this lead to work that will prevent this happening in future being made a top priority?</li>
                                         <li>
                                           <span class="caret">No</span>
                                           <ul class="nested">
@@ -149,7 +149,7 @@ display: block;
                                         <li>
                                           <span class="caret">Yes</span>
                                           <ul class="nested">
-                                            <li>Are your SLIs measured over shorter windows during the SLO window (perhaps in conjunction with tracking your "Error Budget" spend) to proactively try to hit SLOs?</li>
+                                            <li>Are your SLIs measured over shorter windows during the SLO window (perhaps in conjunction with tracking your "<a href="https://sre.google/sre-book/embracing-risk/#xref_risk-management_unreliability-budgets">Error Budget</a>" spend) to proactively try to hit SLOs?</li>
                                             <li>
                                               <span class="caret">No</span>
                                               <ul class="nested">
@@ -166,7 +166,7 @@ display: block;
                                               <li>
                                                 <span class="caret">No</span>
                                                 <ul class="nested">
-                                                  <li>Sounds like it's time to shift left your use of SLIs and SLOs and make them a native part of delivery as opposed to something you retro fit.</li>
+                                                  <li>Sounds like it's time to shift left your use of SLIs and SLOs and make them a native part of delivery as opposed to something you retrofit.</li>
                                                 </ul>
                                               </li>
                                               <li>
@@ -225,7 +225,7 @@ display: block;
                       <li>
                         <span class="caret">No</span>
                         <ul class="nested">
-                          <li>Create one!  This doesn't have to be incredibly precise and comprehensive, we're looking for an indication of the most prevalent, costly, and risky (often Toil involves risky work like running privileged system commands).</li>
+                          <li>Create one!  This doesn't have to be incredibly precise and comprehensive, we're looking for an indication of the most prevalent, costly, and risky (often Toil involves risky work like running privileged system commands) work.</li>
                         </ul>
                       </li>
                       <li>
@@ -235,7 +235,7 @@ display: block;
                           <li>
                             <span class="caret">No</span>
                             <ul class="nested">
-                              <li>Create a prioritisation method.  They key inputs are: cost spent performing one instance of the task, frequency task is needed, any impact to users (for example a Member waits for task to complete), risks for task to complete.  A pseudo scientific model (i.e. similar to a risk prioritisation matrix) should suffice.</li>
+                              <li>Create a prioritisation method.  They key inputs are: cost spent performing one instance of the task, frequency task is needed, any impact to users (for example a customer/user waits for task to complete), risks for task to complete.  A pseudo-scientific model (i.e. similar to a risk prioritisation matrix) should suffice.</li>
                             </ul>
                           </li>
                           <li>
@@ -262,7 +262,7 @@ display: block;
                                   <li>
                                     <span class="caret">Yes</span>
                                     <ul class="nested">
-                                      <li>Just wow, you have a well oiled approach to Toil  Please share your experiences with others!  (And maybe think next about service quality improvement.)</li>
+                                      <li>Just wow, you have a well-oiled approach to Toil  Please share your experiences with others!  (And maybe think next about service quality improvement.)</li>
                                     </ul>
                                   </li>
                                 </ul>
@@ -289,7 +289,7 @@ display: block;
                     <li>You can potentially lower the quality of your service to make it cheaper to run.  For example if you need a page load time to be 2000ms and it currently loads in 10ms, you might be able to reduce the amount of infrastructure you use.</li>
                   </ul>
                 </li>
-                <li>2. Focus on reducing Toil i.e. the manual work required to support production (for which the cost of that work could avoided).</li>
+                <li>2. Focus on reducing Toil i.e. the manual work required to support production (for which the cost of that work could be avoided).</li>
               </ul>
               <li>So go back a step and pick Improve Service Quality or Reduce Toil!</li>
               <li><br/>NB. there are other cost saving levers that impact the above ideas.  For example you may currently run your service with a low day rate outsourced team.  Your strategy may be to reduce Toil and therefore the number of people required, or instead it might be to reduce Toil to the point that your inhouse Engineers can pick it all up cost effectively.</li>
